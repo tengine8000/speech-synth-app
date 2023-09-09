@@ -60,9 +60,15 @@
     }
   }
 
+  /** @type {import('./$types').Snapshot<string>} */
+  export const snapshot = {
+    capture: () => text,
+    restore: (value) => text = value
+  };
+
 </script>
 <div class="container columns-2">
-  <form id="speechForm" class="py-1 break-after-column">
+  <form method="get" id="speechForm" class="py-1 break-after-column">
     <label for="rate" class="mx-2 text-gray-100">Rate {rate}</label><br>
     <input class="mx-2 my-2" type="range" min="0.1" step="0.1" max="3" bind:value={rate} on:change={() => play()} name="rate" id="rate"/><br>
 
